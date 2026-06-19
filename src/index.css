@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-950 text-white font-sans antialiased;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: rgba(249, 115, 22, 0.3);
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .bubble-glow {
+    position: relative;
+  }
+
+  .bubble-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      rgba(249, 115, 22, 0.3),
+      rgba(249, 115, 22, 0.1),
+      rgba(249, 115, 22, 0.05),
+      rgba(249, 115, 22, 0.1),
+      rgba(249, 115, 22, 0.3)
+    );
+    filter: blur(8px);
+    animation: bubble-rotate 4s linear infinite;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .bubble-glow:hover::before {
+    opacity: 1;
+  }
+
+  .bubble-glow:hover {
+    box-shadow:
+      0 0 20px rgba(249, 115, 22, 0.15),
+      0 0 40px rgba(249, 115, 22, 0.1),
+      0 0 60px rgba(249, 115, 22, 0.05);
+  }
+
+  .particle-shadow {
+    box-shadow:
+      0 2px 4px rgba(0, 0, 0, 0.3),
+      0 4px 8px rgba(0, 0, 0, 0.2),
+      0 8px 16px rgba(0, 0, 0, 0.1),
+      0 16px 32px rgba(0, 0, 0, 0.1),
+      0 32px 64px rgba(249, 115, 22, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  .particle-shadow-hover:hover {
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.4),
+      0 8px 16px rgba(0, 0, 0, 0.3),
+      0 16px 32px rgba(0, 0, 0, 0.2),
+      0 32px 64px rgba(0, 0, 0, 0.15),
+      0 0 30px rgba(249, 115, 22, 0.15),
+      0 0 60px rgba(249, 115, 22, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  }
+
+  .inner-glow {
+    box-shadow: inset 0 0 20px rgba(249, 115, 22, 0.05);
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes bubble-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(249, 115, 22, 0.2),
+      0 0 40px rgba(249, 115, 22, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 30px rgba(249, 115, 22, 0.3),
+      0 0 60px rgba(249, 115, 22, 0.15);
+  }
+}
