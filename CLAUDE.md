@@ -20,3 +20,5 @@ Baca semua file di .docs/ sebelum mulai mengerjakan apapun.
 
 ## Stack Reminder
 React + Vite | Tailwind | shadcn/ui | Framer Motion | Supabase | Capacitor
+## Konteks Tambahan
+Baca ~/Documents/Nexus/CLAUDE.md dan folder terkait di 01-Projects/ atau 02-Areas/ untuk konteks personal & riwayat kerja. Kalau note project ini belum ada di Nexus, buatkan.
